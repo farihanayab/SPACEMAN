@@ -25,7 +25,7 @@ body {
      color: white;
  }
   
-  main {
+main {
     display: grid;
     grid-template-columns: 35vmin 15vmin 35vmin;
     grid-template-rows: 10vmin 10vmin 35vmin 15vmin;
@@ -50,7 +50,7 @@ body {
     row-gap: 30px;
 
   }
-  .alphabet {
+  .letters {
     text-align: center;
     width: fit-content;
     margin: 5px;

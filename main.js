@@ -33,6 +33,7 @@ function displayCategories() {
     }
     // WRITE CODE that grabs the category via DOM from the users selection *******
     // pass this category to handleUserSelction(category)*****
+    function handleUserSelection(categories)
   }
 
 // Step2 Pick a random word from categories depending on the user selection
