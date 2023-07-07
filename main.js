@@ -1,7 +1,5 @@
-console.log("js works")
-
 // Game Logic
-
+//console.log("js works")
 // Spaceman 
 
 // letters (abc) 
@@ -11,100 +9,113 @@ console.log("js works")
 // step3. randomly select a word from the values array (math.random, array.length, select that index and store it as your word)
 // hangman - point system (6)
 
+
+// GLOBAL VARIABLES 
 // Categories and words
 var categories = {
     foods: ['apple', 'pizza', 'cake'],
     countries: ['mexico', 'china', 'canada'],
-    TVshows: []
-
+    animals: ['kangaroo' , 'elephant' , 'shark'], 
   };
+// Letters a person has guessed
+let guessedLetters = [];
+// Maximum attempts allowed
+let remainingAttempts = 6; 
+// current word 
+let currentWord = ''
 
-
-var guessedLetters = [];
-
-  // object[key] = value
-  // categories['foods'] --> [array...]
-  
-  // Function to display available categories
-  function displayCategories() {
+// Step1: Allow the player to pick a category
+// Function to display available categories
+function displayCategories() {
     console.log("Available categories:");
-    for (var category in categories) {
+    for (let category in categories) {
       console.log(category);
     }
+    // WRITE CODE that grabs the category via DOM from the users selection *******
+    // pass this category to handleUserSelction(category)*****
   }
-  function handleUserSelection(category) {
-  // Function to handle category selection
 
+// Step2 Pick a random word from categories depending on the user selection
+function handleUserSelection(category) {
     // Randomly select a word from the chosen category
-    var randomIndex = Math.floor(Math.random() * category.length);
-    var selectedWord = category[randomIndex];
+    let randomIndex = Math.floor(Math.random() * category.length);
+    let selectedWord = category[randomIndex];
     console.log("Selected word:", selectedWord);
-  
     // Start the Hangman game with the selected word
     startSpaceman(selectedWord);
   }
-  // 
-  function handlePlayerGuess(letter) {
+
+// Step3 Start the spaceman game using the word the computer chose for the player 
+function startSpaceman(word) { 
+    currentWord = word;
+    console.log("We are now in startSpaceman function")
+    // WRITE ******
+    // START THE GAME BY ADDING THE BLANK LETTERS TO THE PAGE SO USER CAN TRY GUESSING THE WORD
+    // function or something that counts how many letters are in the word, and for each letter is adds a blank line onto the page
+    // design this so that when a user guesses a letter correctly, that letter appears on the screen
+    // create a dive for each letter and give it a unique id with that letter id='guess-id'
+    // when a player guesses correctly, that div can go from "dispaly:none" to "display:block" and the letter will appear on screen
+    // note: look up how to add letters to a div 
+    // <div class='hide-letter' id='guess-A'>"A"</div>
+
+    // ALLOW USER TO GUESS LETTERS 
+    // let the user click a ABC letter ******
+    // WRITE get the value of selected letter -> save it to a variable -> pass this var to handlePlayerGuess(var)*****
+  // make sure the letter could be grabbed via DOM let letter = '', using handleClick
+    let letter = ''
+    function handlePlayerGuess(letter)
+}
+
+// Step4 Check if the players guess is correct or incorrect
+// if it is correct - add the letter to the line
+// if it wrong - take away a point from remaining guesses and add a body part for spaceman 
+function handlePlayerGuess(letter) {
     // Check if the letter has already been guessed
     console.log('We are now in handlePlayerGuess')
     if (guessedLetters.includes(letter)) {
+    // display a message to the user telling them that they already guessed this letter. ****** 
       console.log("You already guessed that letter. Try again.");
       return;
     }
 
     // Add the letter to the guessed letters array
+    // create a box in html to store your guesses *****
+    // add this letter to that box ***
+    // OR after a player guesses a letter, disable or make that letter disapear ex:  
+    // document.getElementById("A").style.display="none"; 
+    // document.getElementById("mainFrameTwo").style.display="block";
     guessedLetters.push(letter);
-
     // Check if the letter is present in the word
     if (word.includes(letter)) {
       console.log("Correct guess!");
       // You can perform any additional actions or logic here
+        // add the correct guess to the line (where the word is)***
     } else {
       remainingAttempts--;
       console.log("Incorrect guess! Remaining attempts: " + remainingAttempts);
       // You can perform any additional actions or logic here
+        // LOGIC TO MAKE SPACEMAN BODY PARTS APPEAR ONE BY ONE
     }
 
     // Check if the game is over
     if (remainingAttempts === 0) {
       console.log("Game over! You ran out of attempts.");
+        return;
       // You can perform any additional actions or logic here
+    } else {
+        // ask the player for another guess
+        startSpaceMan(currentWord);
     }
   }
   // Function to start the Hangman game
-  function startSpaceman(word) {
-    var remainingAttempts = 6; // Maximum attempts allowed
-    console.log("We are now in startSpaceman function")
-    // start getting guesses or letters from the player 
-    // Function to handle player's guess
 
-    // write logic to get a letter from the player.
-    // hard code (delete later)
-    let letter = 'a'
-    function handlePlayerGuess(letter)
-  }
-
-
-  
+// 
 // Play Game
 // show the player the categoriess
 displayCategories();
-// have the player pick a category
 
-// let category = prompt("what category do you wan to pick?");
-// console.log("The Player has selected " + category)
-
-let category = 'foods';
-
-console.log("The player has selected " + category + "!")
-console.log("Game Begin")
-// get the input from the client (look up how to accept input from client and save it to a variable);
-// set the input to variable called userSelection = "";
-// call handleCategoryFunction(userSelection);
-console.log(categories[category])
-handleUserSelection(categories[category]);
-
-
+// reference
+subMenuEL.addEventListener('click', function(guesses)
 
 
 
