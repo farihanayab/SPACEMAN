@@ -17,57 +17,54 @@ var categories = {
   animals: ["kangaroo", "elephant", "shark"],
 };
 const foods = ["APPLE", "PIZZA", "CAKE"];
-let currentWord=foods[0];
-let guessedLetter 
+let currentWord = foods[0];
+let guessedLetter;
+let tries = 9;
 // Letters a person has guessed
 let guessedLetters = [];
 // Maximum attempts allowed
 let remainingAttempts = 6;
 // current word
-const aEl = document.getElementById('A');
-const bEl = document.getElementById('B');
- const wordEl = document.getElementById('word');
+const aEl = document.getElementById("A");
+const bEl = document.getElementById("B");
+const wordEl = document.getElementById("word");
+const messageEl = document.getElementById("message");
+
 let underscores = [];
-let currentWordArr = [...currentWord]
+let currentWordArr = [...currentWord];
 console.log(currentWordArr);
- currentWordArr.forEach(element => {
-underscores.push('_')
-  wordEl.innerText = underscores.join(" ")
+currentWordArr.forEach((element) => {
+  underscores.push("_");
+  wordEl.innerText = underscores.join(" ");
+});
 
- });
-
-
-
-aEl.addEventListener('click', function(event){
+aEl.addEventListener("click", function (event) {
   // wordEl.innerText = event.target.id
-  guessedLetter = event.target.id 
-  console.log(guessedLetter);
-  if(currentWord.includes(guessedLetter)){ 
-    console.log("This letter is in the word");
-    let index = currentWord.indexOf(event.target.id)
-    underscores[index] = event.target.id
-    wordEl.innerText = underscores.join(" ")
-  }else {
-    console.log("This letter is not in the word");
+  guessedLetter = event.target.id;
+  tries--;
+  if (tries <= 0) {
+    messageEl.innerText = "gameover";
+  } else {
+    if (currentWord.includes(guessedLetter)) {
+      console.log("This letter is in the word");
+      let index = currentWord.indexOf(event.target.id);
+      underscores[index] = event.target.id;
+      wordEl.innerText = underscores.join(" ");
+    } else {
+      console.log("This letter is not in the word");
+    }
   }
-}); 
-bEl.addEventListener('click', function(event){
-  wordEl.innerText = event.target.id
-  guessedLetter = event.target.id 
+});
+bEl.addEventListener("click", function (event) {
+  wordEl.innerText = event.target.id;
+  guessedLetter = event.target.id;
   console.log(guessedLetter);
-  if(currentWord.includes(guessedLetter)){ 
+  if (currentWord.includes(guessedLetter)) {
     console.log("This letter is in the word");
-  }else {
+  } else {
     console.log("This letter is not in the word");
   }
 });
-
-
-
-
-
-
-
 
 // Step1: Allow the player to pick a category
 // Function to display available categories
