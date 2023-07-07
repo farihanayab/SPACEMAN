@@ -45,12 +45,19 @@ aEl.addEventListener("click", function (event) {
   if (tries <= 0) {
     messageEl.innerText = "gameover";
   } else {
-    if (currentWord.includes(guessedLetter)) {
+    if (currentWord.includes(guessedLetter) && !underscores.includes("_")){
+      messageEl.innerText = "You Win";
+      let index = currentWord.indexOf(event.target.id);
+      underscores[index] = event.target.id;
+      wordEl.innerText = underscores.join(" ");
+    }
+    else if (currentWord.includes(guessedLetter)) {
       console.log("This letter is in the word");
       let index = currentWord.indexOf(event.target.id);
       underscores[index] = event.target.id;
       wordEl.innerText = underscores.join(" ");
-    } else {
+    } 
+    else {
       console.log("This letter is not in the word");
     }
   }
