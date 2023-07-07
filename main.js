@@ -16,8 +16,9 @@ var categories = {
   countries: ["mexico", "china", "canada"],
   animals: ["kangaroo", "elephant", "shark"],
 };
-const foods = ["APPLE", "PIZZA", "CAKE"];
-let currentWord = foods[0];
+const wordsArr = ["APPLE", "PIZZA", "CAKE"];
+let currentWord = wordsArr[Math.floor((Math.random() * (wordsArr.length)))];
+console.log(currentWord);
 let guessedLetter;
 let tries = 9;
 // Letters a person has guessed
@@ -39,37 +40,43 @@ currentWordArr.forEach((element) => {
 });
 
 aEl.addEventListener("click", function (event) {
-  // wordEl.innerText = event.target.id
   guessedLetter = event.target.id;
   tries--;
   if (tries <= 0) {
     messageEl.innerText = "gameover";
   } else {
-    if (currentWord.includes(guessedLetter) && !underscores.includes("_")){
+    if (currentWord.includes(guessedLetter) && !underscores.includes("_")) {
       messageEl.innerText = "You Win";
       let index = currentWord.indexOf(event.target.id);
       underscores[index] = event.target.id;
       wordEl.innerText = underscores.join(" ");
-    }
-    else if (currentWord.includes(guessedLetter)) {
-      console.log("This letter is in the word");
+    } else if (currentWord.includes(guessedLetter)) {
       let index = currentWord.indexOf(event.target.id);
       underscores[index] = event.target.id;
       wordEl.innerText = underscores.join(" ");
-    } 
-    else {
-      console.log("This letter is not in the word");
+    } else {
+      messageEl.innerText = "This letter is not in the word";
     }
   }
 });
 bEl.addEventListener("click", function (event) {
-  wordEl.innerText = event.target.id;
   guessedLetter = event.target.id;
-  console.log(guessedLetter);
-  if (currentWord.includes(guessedLetter)) {
-    console.log("This letter is in the word");
+  tries--;
+  if (tries <= 0) {
+    messageEl.innerText = "gameover";
   } else {
-    console.log("This letter is not in the word");
+    if (currentWord.includes(guessedLetter) && !underscores.includes("_")) {
+      messageEl.innerText = "You Win";
+      let index = currentWord.indexOf(event.target.id);
+      underscores[index] = event.target.id;
+      wordEl.innerText = underscores.join(" ");
+    } else if (currentWord.includes(guessedLetter)) {
+      let index = currentWord.indexOf(event.target.id);
+      underscores[index] = event.target.id;
+      wordEl.innerText = underscores.join(" ");
+    } else {
+      messageEl.innerText = "This letter is not in the word";
+    }
   }
 });
 
