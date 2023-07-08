@@ -72,21 +72,15 @@ init()
 
 const myLetters = document.getElementsByClassName("letter");
 
-function letterClicked(e) {
-  console.log(e.target.id);  // Get ID of Clicked Element
+function letterClicked(event) {
+  console.log(event.target.id);  // Get ID of Clicked Element
+    let letterID = event.target.id
     // disable the letter 
+    document.getElementById(`${letterID}`).disabled = true;
     // check if this letter exists inside the currentWordArr 
     // if it exists --> it means they guessed right
-        // add this to the dash at the correct spot
-    // else they guessed wrong 
-        // minus a life
-        // add a body part of space man to the page
+    // add this letter to the dashes
 }
-
-for (let letter of myLetters) {
-  letter.addEventListener("click", letterClicked);
-}
-
 
 // document.getElementById("A").addEventListener("click", handleClick);
 // function handleClick(event) {
