@@ -39,6 +39,12 @@ currentWordArr.forEach((element) => {
   wordEl.innerText = underscores.join(" ");
 });
 
+// show the player the categoriess
+displayCategories();
+
+
+// ----------------------------------clicks--------------------------------------------------------
+
 aEl.addEventListener("click", function (event) {
   guessedLetter = event.target.id;
   tries--;
@@ -79,6 +85,7 @@ bEl.addEventListener("click", function (event) {
     }
   }
 });
+
 
 // Step1: Allow the player to pick a category
 // Function to display available categories
@@ -122,7 +129,7 @@ function startSpaceman(word) {
   let letter = "";
   function handlePlayerGuess(letter) {}
 }
-
+// --------------------------messages------------------------------------------------------
 // Step4 Check if the players guess is correct or incorrect
 // if it is correct - add the letter to the line
 // if it wrong - take away a point from remaining guesses and add a body part for spaceman
@@ -168,36 +175,10 @@ function handlePlayerGuess(letter) {
 
 //
 // Play Game
-// show the player the categoriess
-displayCategories();
 
 // reference
 subMenuEL.addEventListener("click", function (guesses) {});
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// garbage code
-// have a var that stores the current word
-// word = 'computer
 
-// function that checks if the guess is inside of the word
-// if input is 'A' then let it show up on the line and if it is inncorrect then let a incorrect message show up.
-// instead of showing up on the line
-// if answered incorrectly one body part will appear.
 
-// if the player guess correctly they win (put in winning number)
-// else they lose
-// game logic
 
-// have a var that counts how many incorrect guesses
-// Initialize the incorrectGuesses variable
-// var incorrectGuesses = 0;
-
-// // Function to handle an incorrect guess
-// function handleIncorrectGuess() {
-//   incorrectGuesses++; // Increment the count of incorrect guesses
-//   console.log("Incorrect guess! Total incorrect guesses: " + incorrectGuesses);
-//   // You can perform any additional actions or logic here
-// }
-
-// have an array that stores the guess of the player:
-// Initialize the array to store player's guesses
