@@ -1,22 +1,4 @@
-// Game Logic
-//console.log("js works")
-// Spaceman
-
-// letters (abc)
-// categories : {kay:value, key:value} let categores = { 'foods' = ['apple'], 'cars': ['toyota']}
-// step1. show the person the categories (how can I list all the keys in an object)
-// step2. let the person pick a category ('foods') (. key value)
-// step3. randomly select a word from the values array (math.random, array.length, select that index and store it as your word)
-// hangman - point system (6)
-
-// GLOBAL VARIABLES
-// Categories and words
-// var categories = {
-//   foods: ["apple", "pizza", "cake"],
-//   countries: ["mexico", "china", "canada"],
-//   animals: ["kangaroo", "elephant", "shark"],
-// };
-/// ------------------------ variables ----------------------------------- // 
+// ------------------------ variables ----------------------------------- // 
 
 // words we are using
 const wordsArr = [
@@ -44,6 +26,7 @@ const wordsArr = [
   'BARREN',       'BASIC',       'BEAUTIFUL',  'BELATED',
   'BELOVED',      'BENEFICIAL',  'BETTER',     'BEST',
   'BEWITCHED',    'BIG',         'BIGHEARTED', 'BIODEGRADABLE',
+
 ];
 // current word the user is guessing 
 let currentWord;
@@ -65,21 +48,19 @@ const messageEl = document.getElementById("message");
 const letterEl = document.getElementsByClassName("letter");
 const myLetters = document.getElementsByClassName("letter");
 
-
-
 // ----------------------------Functions to Start the Game ------------------------- // 
 
 for (let letter of myLetters) {
-  letter.addEventListener("click", letterClicked);
+    letter.addEventListener("click", letterClicked);
 };
 
 
 // display the current word as dashes on the screen
 function wordToDash(wordArr) {
-     wordArr.forEach((element) => {
+    wordArr.forEach((element) => {
         underscores.push("_");
-        wordEl.innerText = underscores.join(" "); 
-    });  
+        wordEl.innerText = underscores.join(" ");
+    });
 }
 
 // start the game with init function
@@ -102,83 +83,71 @@ function resetGame() {
     init()
 }
 
+// when a player clicks player the game should start
+
 playButton.addEventListener('click', init);
-// resetButton.addEventListener('click', resetGame)
 
-// ------------------------------------------------------------------------------------------
+// ---------------------------------Allow the User to Click Letters and Handle These Clicks---------------------------------------------------------
 
-// Allow the User to Click Letters and Handle These Clicks
-
-const myLetters = document.getElementsByClassName("letter");
-
-function letterClicked(event) {
-  console.log(event.target.id);  // Get ID of Clicked Element
-    let letterID = event.target.id
-    // disable the letter 
-    document.getElementById(`${letterID}`).disabled = true;
-    // check if this letter exists inside the currentWordArr 
-    // if it exists --> it means they guessed right
-    // add this letter to the dashes
+function endGame() {
+    // disable all the characters
+    allLetters = document.querySelectorAll('letter');
+    console.log(allLetters);
+    console.log('Game is Over!')
+    // ask the player if they want to play again?
+    // reset evrything
 }
 
-// document.getElementById("A").addEventListener("click", handleClick);
-// function handleClick(event) {
-//     // get the id of the letter so we know which letter is clicked
-//     console.log(event.target.innerHTML);
+function letterClicked(event) {
+    if (!underscores.includes('_')) {
+        // check if everything has been guessed right
+                    messageEl.innerText = 'You win!'
+                    endGame();
+            }
+    guessedLetter = event.target.id;
+    if (guessedLetters.includes(guessedLetter)) {
+        messageEl.innerHTML('You already guessed this letter!')
+    } else {
+        guessedLetters.push(guessedLetter)
+        // disable the letter 
+        document.getElementById(`${guessedLetter}`).classList.add('disable');
+    }
     
-// }
+    if (remainingLives <= 0) {
+        messageEl.innerText = "gameover";
+        document.getElementById(`${bodyPart}`).classList.remove('hidden');
+        // let allRemainingLetters = document.getElementsByClassName('letter');
+        let remainingLetters = document.querySelectorAll('.letter')
+        playButton.innerHTML = 'Play Again'
+        for (l in remainingLetters) {
+            console.log(l)
+        }
+    } else {
+        if (currentWord.includes(guessedLetter)) {
+            var condition = true;
+            for (;condition;) {
+                if (!currentWordArr.includes(guessedLetter)) {
+                    condition = false;
+                } else {
+                    let index = currentWordArr.indexOf(event.target.id);
+                    currentWordArr.splice(index, 1, '_');
+                    console.log(currentWordArr);
+                    underscores[index] = event.target.id;
+                    wordEl.innerText = underscores.join(" ");
+                    console.log('underscores: ' + underscores)
+                }
+            } 
+        }
+        else {
+                messageEl.innerHTML = "This letter is not in the word";
+                remainingLives--;
+                // show a body part;
+                console.log('remainingLives' + remainingLives)
+                bodyPart = remainingLives;
+                // remove the hidden class from the body part so it shows up
+                document.getElementById(`${bodyPart}`).classList.remove('hidden')
+            }
+        }
+}
+    // add an event listener to every letter so I can handle player clicks
 
-// aEl.addEventListener("click", function(event) {
-//   guessedLetter = event.target.id;
-//   tries--;
-//   if (tries <= 0) {
-//     messageEl.innerText = "gameover";
-//   } else {
-//     if (currentWord.includes(guessedLetter) && !underscores.includes("_")) {
-//       messageEl.innerText = "You Win";
-//       let index = currentWord.indexOf(event.target.id);
-//       underscores[index] = event.target.id;
-//       wordEl.innerText = underscores.join(" ");
-//     } else if (currentWord.includes(guessedLetter)) {
-//       let index = currentWord.indexOf(event.target.id);
-//       underscores[index] = event.target.id;
-//       wordEl.innerText = underscores.join(" ");
-//     } else {
-//       messageEl.innerText = "This letter is not in the word";
-//     }
-//   }
-// });
-// bEl.addEventListener("click", function(event) {
-//   guessedLetter = event.target.id;
-//   tries--;
-//   if (tries <= 0) {
-//     messageEl.innerText = "gameover";
-//   } else {
-//     if (currentWord.includes(guessedLetter) && !underscores.includes("_")) {
-//       messageEl.innerText = "You Win";
-//       let index = currentWord.indexOf(event.target.id);
-//       underscores[index] = event.target.id;
-//       wordEl.innerText = underscores.join(" ");
-//     } else if (currentWord.includes(guessedLetter)) {
-//       let index = currentWord.indexOf(event.target.id);
-//       underscores[index] = event.target.id;
-//       wordEl.innerText = underscores.join(" ");
-//     } else {
-//       messageEl.innerText = "This letter is not in the word";
-//     }
-//   }
-// });
-
-// // --------------------------messages------------------------------------------------------
-
-// function handlePlayerGuess(letter) {
-//   // Check if the letter has already been guessed
-//   console.log("We are now in handlePlayerGuess");
-//   if (guessedLetters.includes(letter)) {
-//     // display a message to the user telling them that they already guessed this letter. ******
-//     console.log("You already guessed that letter. Try again.");
-//     return;
-//   }
-// }
-
-//     subMenuEL.addEventListener("click", function(guesses) { });
