@@ -4,7 +4,7 @@
 const wordsArr = [
   'ABANDONED',    'ABLE',        'ABSOLUTE',   'ADORABLE',
   'ADVENTUROUS',  'ACADEMIC',    'ACCEPTABLE', 'ACCLAIMED',
-  'ACCOMPLISHED', 'ACCURATE',    'ACHING',     'ACIDIC',
+  'ACCURATE',    'ACHING',     'ACIDIC',
   'ACROBATIC',    'ACTIVE',      'ACTUAL',     'ADEPT',
   'ADMIRABLE',    'ADMIRED',     'ADOLESCENT', 'ADORABLE',
   'ADORED',       'ADVANCED',    'AFRAID',     'AFFECTIONATE',
@@ -99,11 +99,9 @@ function endGame() {
 }
 
 function letterClicked(event) {
-    if (!underscores.includes('_')) {
-        // check if everything has been guessed right
-                    messageEl.innerText = 'You win!'
-                    endGame();
-            }
+  console.log(underscores);
+
+
     guessedLetter = event.target.id;
     if (guessedLetters.includes(guessedLetter)) {
         messageEl.innerHTML('You already guessed this letter!')
@@ -147,7 +145,15 @@ function letterClicked(event) {
                 // remove the hidden class from the body part so it shows up
                 document.getElementById(`${bodyPart}`).classList.remove('hidden')
             }
-        }
+          } 
+          if (!underscores.includes('_')) {   
+            console.log("You win!");
+              // check if everything has been guessed right
+                          messageEl.innerText = 'You win!'
+                          endGame();
+                         
+                  } 
 }
+
     // add an event listener to every letter so I can handle player clicks
 

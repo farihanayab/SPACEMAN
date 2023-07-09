@@ -78,6 +78,7 @@ img {
     text-align: center;
     height: 10%;
     width: 10% ;
+    position: absolute;
 }
 
 .image {
@@ -112,7 +113,7 @@ img {
 }
 
 #message {
-    background-color: white;
+    background-color: transparent;
     border:black 20px;
     /* margin: 50%; */
     text-align: center;
@@ -120,7 +121,7 @@ img {
     /* height: 100%; */
     /* width: 50%; */
     margin: auto;
-    color:#0e0101;
+    color:white;
 }
 
 .hidden {
