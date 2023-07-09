@@ -4,7 +4,8 @@
     <title>Space Man</title>
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Open+Sans:wght@300&display=swap" rel="stylesheet">"
     <h1>Space Man</h1>
-    <p id="message"> Use the alphabet in the textbox below</p>
+    <h2>Welcome to Space Man </h2>
+    <h3 id="message">Click Play to start</h3>
     <link href=" <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta charset="UTF-8">
@@ -13,19 +14,20 @@
     <script defer src="main.js"></script>
 </header>
 <body>
-   <h2>Welcome to Space Man </h2>
-   <h3>Click Play to start</h3>
-
-   <div class="image"><img src="./PICTURES/spacemanpicture.png" alt="PICTURES"></div> 
-
+   <div class="image">
+        <div class='body hidden' id='0'><img src="./PICTURES/spacemanPart1.png" alt="PICTURES"></div></div>
+        <div class='body hidden' id='1'><img src="./PICTURES/spacemanPart2.png" alt="PICTURES"></div></div>
+        <div class='body hidden' id='2'><img src="./PICTURES/spacemanPart3.png" alt="PICTURES"></div></div>
+        <div class='body hidden' id='3'><img src="./PICTURES/spacemanPart4.png" alt="PICTURES"></div></div>
+        <div class='body hidden' id='4'><img src="./PICTURES/spacemanPart5.png" alt="PICTURES"></div></div>
+        <div class='body hidden' id='5'><img src="./PICTURES/spacemanPart6.png" alt="PICTURES"></div></div> 
+       <!-- <img src="pngtree-astronaut-spaceflight-image_2250577.jpeg" alt="PICTURES"></div>  -->
     <main>
     <div id="Categories"></div>
     <div id="container"></div>
     <div id="letters"></div>
-    <div id="word">This is test text</div>
-    <!-- <div id="guesses"></div> -->
-
-
+    <div class='hidden' id="word"></div>     
+    
     <div class="buttons letters"id="guesses"> 
         <button class="letter" id='A'>A</button>
         <button class="letter" id='B'>B</button>
@@ -63,9 +65,10 @@
 
   
 
-    <button id="playagain">PLAY</button>
-     
-    <button id="reset">RESET</button>
+    <button id="play">PLAY</button>
+   
+    <!-- <button id="reset">RESET</button> -->
+    
 </main>
 </body>
 </html>

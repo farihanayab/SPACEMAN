@@ -16,17 +16,44 @@
 //   countries: ["mexico", "china", "canada"],
 //   animals: ["kangaroo", "elephant", "shark"],
 // };
-// ------------------------ variables ----------------------------------- // 
+/// ------------------------ variables ----------------------------------- // 
 
 // words we are using
-const wordsArr = ["APPLE", "PIZZA", "CAKE"];
+const wordsArr = [
+  'ABANDONED',    'ABLE',        'ABSOLUTE',   'ADORABLE',
+  'ADVENTUROUS',  'ACADEMIC',    'ACCEPTABLE', 'ACCLAIMED',
+  'ACCOMPLISHED', 'ACCURATE',    'ACHING',     'ACIDIC',
+  'ACROBATIC',    'ACTIVE',      'ACTUAL',     'ADEPT',
+  'ADMIRABLE',    'ADMIRED',     'ADOLESCENT', 'ADORABLE',
+  'ADORED',       'ADVANCED',    'AFRAID',     'AFFECTIONATE',
+  'AGED',         'AGGRAVATING', 'AGGRESSIVE', 'AGILE',
+  'AGITATED',     'AGONIZING',   'AGREEABLE',  'AJAR',
+  'ALARMED',      'ALARMING',    'ALERT',      'ALIENATED',
+  'ALIVE',        'ALL',         'ALTRUISTIC', 'AMAZING',
+  'AMBITIOUS',    'AMPLE',       'AMUSED',     'AMUSING',
+  'ANCHORED',     'ANCIENT',     'ANGELIC',    'ANGRY',
+  'ANGUISHED',    'ANIMATED',    'ANNUAL',     'ANOTHER',
+  'ANTIQUE',      'ANXIOUS',     'ANY',        'APPREHENSIVE',
+  'APPROPRIATE',  'APT',         'ARCTIC',     'ARID',
+  'AROMATIC',     'ARTISTIC',    'ASHAMED',    'ASSURED',
+  'ASTONISHING',  'ATHLETIC',    'ATTACHED',   'ATTENTIVE',
+  'ATTRACTIVE',   'AUSTERE',     'AUTHENTIC',  'AUTHORIZED',
+  'AUTOMATIC',    'AVARICIOUS',  'AVERAGE',    'AWARE',
+  'AWESOME',      'AWFUL',       'AWKWARD',    'BABYISH',
+  'BAD',          'BACK',        'BAGGY',      'BARE',
+  'BARREN',       'BASIC',       'BEAUTIFUL',  'BELATED',
+  'BELOVED',      'BENEFICIAL',  'BETTER',     'BEST',
+  'BEWITCHED',    'BIG',         'BIGHEARTED', 'BIODEGRADABLE',
+];
 // current word the user is guessing 
 let currentWord;
+let currentWordArr;
 let underscores;
 // guessed letters by user
-let guessedLetters;
+let guessedLetters = [];
 // Maximum attempts allowed
 let remainingAttempts;
+let bodyPart;
 
 
 // ------------------------- DOM Elements I Need ---------------------------- // 
@@ -35,11 +62,17 @@ const playButton = document.getElementById('play')
 const resetButton = document.getElementById('reset')
 const wordEl = document.getElementById("word");
 const messageEl = document.getElementById("message");
-var letterEl = document.getElementsByClassName("letter");
+const letterEl = document.getElementsByClassName("letter");
+const myLetters = document.getElementsByClassName("letter");
 
 
 
 // ----------------------------Functions to Start the Game ------------------------- // 
+
+for (let letter of myLetters) {
+  letter.addEventListener("click", letterClicked);
+};
+
 
 // display the current word as dashes on the screen
 function wordToDash(wordArr) {
@@ -51,20 +84,26 @@ function wordToDash(wordArr) {
 
 // start the game with init function
 function init() {
+    playButton.innerHTML = 'Reset'
     console.log('calling init function now')
+    messageEl.innerText = 'Use the alphabet in the textbox below to guess a letter'
     underscores = [];
     currentWord = wordsArr[Math.floor((Math.random() * (wordsArr.length)))];
-    let currentWordArr = [...currentWord];
+    currentWordArr = [...currentWord];
     console.log(currentWordArr)
     let guessedLetters = [];
     remainingLives = 6;
     wordToDash(currentWordArr);
+    let showWord = document.getElementById('word').classList.remove('hidden');
 }
 
- // playButton.addEventListener("click",init);
+function resetGame() {
+    messageEl.innerText = 'Use the alphabet in the textbox below to guess a letter';
+    init()
+}
 
-// START THE GAME
-init()
+playButton.addEventListener('click', init);
+// resetButton.addEventListener('click', resetGame)
 
 // ------------------------------------------------------------------------------------------
 
