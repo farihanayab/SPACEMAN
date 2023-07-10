@@ -1,6 +1,9 @@
 # SPACEMAN
 # <SpaceMan>
 SpaceMan is a word guessing game which requries players to uncover hidden words by guessing letters. 
+
+Current Categories: Random
+
 # Link to Game 
 
 # Screenshots
