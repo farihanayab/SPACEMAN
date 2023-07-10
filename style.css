@@ -128,3 +128,10 @@ img {
     display:none;
 }
 
+div image {
+position: absolute;
+text-align: center;
+height: 150px;
+width: 150px ;
+
+}
