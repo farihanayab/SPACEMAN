@@ -5,7 +5,7 @@ SpaceMan is a word guessing game which requries players to uncover hidden words 
 Current Categories: Random
 
 # Link to Game 
-
+https://farihanayab.github.io/SPACEMAN/
 # Screenshots
 WireFrame:
 ![SpaceMan wire frame](https://github.com/farihanayab/SPACEMAN/assets/134460266/951353b3-2a58-4750-ad2a-0b929846209a)
