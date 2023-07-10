@@ -1,160 +1,119 @@
 body {
-
-    background-color: #f5a0d1;
-    height: 100vh;
-    flex-direction: column;
-    background-image: url("https://media1.giphy.com/media/xUA7aW1ddSxtVT5zzi/giphy.gif?cid=ecf05e471lw65umbv9eonfjc89xrxjnp80n6v3hjmx60x2uj&ep=v1_gifs_related&rid=giphy.gif&ct=g");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    grid-template-rows: 15vmin 35vmin 15vmin 10vmin; 
+  background-color: #f5a0d1;
+  height: 100vh;
+  flex-direction: column;
+  background-image: url("https://media1.giphy.com/media/xUA7aW1ddSxtVT5zzi/giphy.gif?cid=ecf05e471lw65umbv9eonfjc89xrxjnp80n6v3hjmx60x2uj&ep=v1_gifs_related&rid=giphy.gif&ct=g");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-template-rows: 15vmin 35vmin 15vmin 10vmin;
 }
-   
+
 * {
-    font-family: 'Londrina Shadow', cursive;
-    font-family: 'Open Sans', sans-serif;
-    box-sizing: border-box;
-    font-size: 1.2rem;
-  }
-  h1 {
-    font-size: larger;
-  }
+  font-family: "Londrina Shadow", cursive;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: larger;
+}
 
- header {
-    text-align: center;
-     color: white;
- }
-  
+header {
+  text-align: center;
+  color: white;
+}
+
 main {
-    display: grid;
-    grid-template-columns: 35vmin 15vmin 35vmin;
-    grid-template-rows: 10vmin 10vmin 35vmin 15vmin;
-  }
-  
-  #Categories {
-    width: 100px;
-    height: 50px;
-  }
-  #guesses {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    color: white;
-    height: 5vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    border: solid white 2px;
-    padding: 5vmin;
-    margin: 20px auto;
-    row-gap: 30px;
+  display: grid;
+  grid-template-columns: 35vmin 15vmin 35vmin;
+  grid-template-rows: 10vmin 10vmin 35vmin 15vmin;
+}
 
-  }
-  .letters {
-    text-align: center;
-    width: fit-content;
-    margin: 5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 30px;
-    background-color: #f5a0d1;
-  }
-  #buttons {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    margin: 30px;
-    text-align: center;
+#Categories {
+  width: 100px;
+  height: 50px;
+}
+#guesses {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: solid white 2px;
+  padding: 5vmin;
+  margin: 20px auto;
+  row-gap: 30px;
+}
+.letters {
+  text-align: center;
+  width: fit-content;
+  margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+  background-color: #f5a0d1;
+}
+#buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 30px;
+  text-align: center;
 }
 .button {
-display: flex;
-flex-flow: row;
-    justify-content: center;
-    margin: 30px;
-    text-align: center;
-}
-img {
-    text-align: center;
-    height: 10%;
-    width: 10% ;
-    position: absolute;
-}
-
-.image {
-    position: absolute;
-    text-align: center;
-    height: 150px;
-    width: 150px ;
-    top: 50%;
-    left: 50%;
-}
-
-#zero {
-    float: left;
-    background: transparent;
-    width: 25%;
-    height: 200px;
-}
-
-#one {
-    float: left;
-    background: transparent;
-    width: 50%;
-    height: 200px;
-}
-#two {
-    float: right;
-    background: transparent;
-    width: 25%;
-    height: 200px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 30px;
+  text-align: center;
 }
 
 .body {
-    justify-content: center;
-    position: absolute;
-    text-align: center;
-    height: 100%;
-    width: 100%;  
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
 }
-
-
 
 .disable {
-    color: grey;
-    cursor: not-allowed;
+  color: grey;
+  cursor: not-allowed;
 }
 
-
 #word {
-    position: absolute;
-    padding: 10px; 
-    background-color: rgb(255, 255, 255);
-    color: black;
-    text-align: center;
-    top: 70%;
-    left: 50%;
+  position: absolute;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  text-align: center;
+  top: 70%;
+  left: 50%;
 }
 
 #message {
-    background-color: transparent;
-    border:black 20px;
-    text-align: center;
-    font-size: 1rem;
-    margin: auto;
-    color:white;
+  background-color: transparent;
+  border: black 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin: auto;
+  color: white;
 }
 
-
 .hidden {
-    display: none;
+  display: none;
 }
 
 #guess-remaining {
-  padding:10px;
+  padding: 10px;
   position: absolute;
   background-color: #fafafa;
   margin: auto 40%;
-    text-align: center;
-    font-size:20px;
+  text-align: center;
+  font-size: 20px;
 }
