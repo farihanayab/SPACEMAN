@@ -4,8 +4,10 @@ SpaceMan is a word guessing game which requries players to uncover hidden words 
 # Link to Game 
 
 # Screenshot
+<img width="1470" alt="SpaceMan Starting Page" src="https://github.com/farihanayab/SPACEMAN/assets/134460266/c256acf2-80e3-4522-8108-e6c83f3c5fe2">
+<img width="1467" alt="SpaceMan main page" src="https://github.com/farihanayab/SPACEMAN/assets/134460266/964f4ed0-173e-4fd0-8fbb-2d5323100e7e">
 
-<img src="SPACEMAN GAME PICTURES/SpaceMan Starting Page.png"
+
 <img src="url to your image on imgur">
 
 # Technologies Used
