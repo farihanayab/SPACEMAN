@@ -90,10 +90,34 @@ img {
     left: 50%;
 }
 
-.body {
-    height: 100%;
-    width: 100% ;  
+#zero {
+    float: left;
+    background: transparent;
+    width: 25%;
+    height: 200px;
 }
+
+#one {
+    float: left;
+    background: transparent;
+    width: 50%;
+    height: 200px;
+}
+#two {
+    float: right;
+    background: transparent;
+    width: 25%;
+    height: 200px;
+}
+
+.body {
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    height: 100%;
+    width: 100%;  
+}
+
 
 
 .disable {
@@ -115,23 +139,22 @@ img {
 #message {
     background-color: transparent;
     border:black 20px;
-    /* margin: 50%; */
     text-align: center;
     font-size: 1rem;
-    /* height: 100%; */
-    /* width: 50%; */
     margin: auto;
     color:white;
 }
 
+
 .hidden {
-    display:none;
+    display: none;
 }
 
-div image {
-position: absolute;
-text-align: center;
-height: 150px;
-width: 150px ;
-
+#guess-remaining {
+  padding:10px;
+  position: absolute;
+  background-color: #fafafa;
+  margin: auto 40%;
+    text-align: center;
+    font-size:20px;
 }
